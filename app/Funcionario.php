@@ -18,5 +18,9 @@ class Funcionario extends Model
     public function setores(){
         return $this->hasMany(Setor::class, 'fk_setor_cod_setor', 'cod_setor');
     }
+
+    public function chamados(){
+        return $this->hasMany(Chamado::class, 'fk_funcionario_matricula', 'matricula');
+    }
     
 }
