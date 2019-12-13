@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(array('prefix' => 'api'), function () {
+    Route::get('/', function () {
+        return response()->json(['message' => 'Chadmos API', 'status' => 'Connected']);
+    });
+
+    Route::resource('funcionario', 'FuncionarioController');
+    Route::resource('chamado', 'ChamadoController');
+    Route::resource('produto', 'ProdutoController');
+    Route::resource('resolve', 'ResolveController');
+    Route::resource('setor', 'SetorController');
+    Route::resource('tipo_servico', 'TipoDeServicoController');
+});
